@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dark Theme CSS Animation Gallery</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #111;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 30px 0 10px;
+      color: #fff;
+    }
+
+    .animation-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .box {
+      background: #1e1e1e;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .animation-label {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      font-size: 12px;
+      color: #888;
+    }
+
+    footer {
+      margin-top: auto;
+      background-color: #000;
+      color: #aaa;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Import base animations */
+    .ring { width: 50px; height: 50px; border: 5px solid #00e5ff; border-top: 5px solid transparent; border-radius: 50%; animation: spin 1s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .pulse { width: 60px; height: 60px; background: linear-gradient(45deg, #ff3cac, #784ba0, #2b86c5); border-radius: 50%; animation: pulse 1.5s ease-in-out infinite; }
+    @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.5; } }
+
+    .dot-loader { display: flex; gap: 10px; }
+    .dot-loader div { width: 10px; height: 10px; background-color: #ff6f00; border-radius: 50%; animation: bounce 1.2s infinite ease-in-out; }
+    .dot-loader div:nth-child(2) { animation-delay: 0.2s; }
+    .dot-loader div:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+
+    .flip-square { width: 50px; height: 50px; background: #7c4dff; animation: flip 2s infinite; }
+    @keyframes flip { 0% { transform: rotateY(0); } 50% { transform: rotateY(180deg); } 100% { transform: rotateY(360deg); } }
+
+    .glow { width: 60px; height: 60px; background-color: #18ffff; box-shadow: 0 0 20px #18ffff, 0 0 40px #18ffff; animation: glow-pulse 2s infinite alternate; }
+    @keyframes glow-pulse { 0% { transform: scale(1); } 100% { transform: scale(1.2); box-shadow: 0 0 30px #18ffff, 0 0 60px #18ffff; } }
+
+    .bars { display: flex; align-items: flex-end; gap: 5px; }
+    .bars div { width: 6px; height: 20px; background: #00e676; animation: scaleBar 1s infinite ease-in-out; }
+    .bars div:nth-child(2) { animation-delay: 0.2s; }
+    .bars div:nth-child(3) { animation-delay: 0.4s; }
+    .bars div:nth-child(4) { animation-delay: 0.6s; }
+    @keyframes scaleBar { 0%, 100% { height: 20px; } 50% { height: 50px; } }
+
+    .orbit { width: 80px; height: 80px; border: 3px dashed #f50057; border-radius: 50%; animation: orbit 2s linear infinite; }
+    @keyframes orbit { 0% { transform: rotate(0); } 100% { transform: rotate(360deg); } }
+
+    .ripple { width: 10px; height: 10px; border: 2px solid #03a9f4; border-radius: 50%; animation: ripple 1.5s ease-out infinite; }
+    @keyframes ripple { 0% { transform: scale(0.2); opacity: 1; } 100% { transform: scale(3); opacity: 0; } }
+
+    .zigzag { width: 20px; height: 20px; background: #ff4081; animation: zigzag 1s ease-in-out infinite; }
+    @keyframes zigzag { 0% { transform: translate(0, 0); } 25% { transform: translate(20px, 20px); } 50% { transform: translate(-20px, 20px); } 75% { transform: translate(20px, -20px); } 100% { transform: translate(0, 0); } }
+
+    .waveball { width: 50px; height: 50px; background: #ffea00; border-radius: 50%; animation: waveball 2s ease-in-out infinite; }
+    @keyframes waveball { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-30px); border-radius: 30% 70% 70% 30%/50% 30% 70% 50%; } }
+  </style>
+</head>
+<body>
+  <h1>Dark Theme CSS Animation Gallery</h1>
+  <div class="animation-container">
+    <div class="box"><div class="ring"></div><span class="animation-label">ring</span></div>
+    <div class="box"><div class="pulse"></div><span class="animation-label">pulse</span></div>
+    <div class="box"><div class="dot-loader"><div></div><div></div><div></div></div><span class="animation-label">dot-loader</span></div>
+    <div class="box"><div class="flip-square"></div><span class="animation-label">flip-square</span></div>
+    <div class="box"><div class="glow"></div><span class="animation-label">glow</span></div>
+    <div class="box"><div class="bars"><div></div><div></div><div></div><div></div></div><span class="animation-label">bars</span></div>
+    <div class="box"><div class="orbit"></div><span class="animation-label">orbit</span></div>
+    <div class="box"><div class="ripple"></div><span class="animation-label">ripple</span></div>
+    <div class="box"><div class="zigzag"></div><span class="animation-label">zigzag</span></div>
+    <div class="box"><div class="waveball"></div><span class="animation-label">waveball</span></div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Add these styles inside <style> -->
+<style>
+  /* New Animation Keyframes */
+
+  @keyframes bounce-anim {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+  }
+
+  @keyframes spin-anim {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes stretch {
+    0%, 100% { transform: scaleX(1); }
+    50% { transform: scaleX(1.5); }
+  }
+
+  @keyframes roll {
+    0% { transform: translateX(0) rotate(0); }
+    100% { transform: translateX(100px) rotate(360deg); }
+  }
+
+  @keyframes slide-in {
+    0% { transform: translateX(-100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+
+  @keyframes fade-out {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  @keyframes pop {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+  }
+
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.2); }
+    50% { transform: scale(0.9); }
+    75% { transform: scale(1.1); }
+  }
+
+  @keyframes flicker {
+    0%, 100% { opacity: 1; }
+    10%, 30%, 50%, 70%, 90% { opacity: 0.4; }
+    20%, 40%, 60%, 80% { opacity: 0.8; }
+  }
+
+  @keyframes zoom-in {
+    0% { transform: scale(0.5); }
+    100% { transform: scale(1); }
+  }
+
+  @keyframes zoom-out {
+    0% { transform: scale(1); }
+    100% { transform: scale(0.5); }
+  }
+
+  @keyframes skew {
+    0% { transform: skew(0deg, 0deg); }
+    50% { transform: skew(20deg, 10deg); }
+    100% { transform: skew(0deg, 0deg); }
+  }
+
+  @keyframes tilt {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(10deg); }
+    100% { transform: rotate(-10deg); }
+  }
+
+  @keyframes slide-up {
+    0% { transform: translateY(100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes morph {
+    0% { border-radius: 0%; }
+    50% { border-radius: 50%; }
+    100% { border-radius: 0%; }
+  }
+
+  @keyframes rotate3d {
+    0% { transform: rotate3d(1, 1, 0, 0deg); }
+    100% { transform: rotate3d(1, 1, 0, 360deg); }
+  }
+
+  @keyframes blinker {
+    50% { opacity: 0; }
+  }
+
+  @keyframes expand {
+    0% { width: 10px; height: 10px; }
+    100% { width: 100px; height: 100px; }
+  }
+
+  @keyframes flip-in {
+    0% { transform: rotateX(90deg); opacity: 0; }
+    100% { transform: rotateX(0deg); opacity: 1; }
+  }
+
+  /* Animation Classes */
+  .bounce { width: 50px; height: 50px; background: #ff4081; animation: bounce-anim 1s infinite; }
+  .spin { width: 50px; height: 50px; border: 5px solid #00e5ff; border-radius: 50%; animation: spin-anim 2s linear infinite; }
+  .stretch { width: 60px; height: 30px; background: #29b6f6; animation: stretch 1s infinite; }
+  .roll { width: 30px; height: 30px; background: #ffee58; border-radius: 50%; animation: roll 2s infinite linear; }
+  .slide-in { width: 60px; height: 30px; background: #00e676; animation: slide-in 1.5s infinite alternate; }
+  .fade-out { width: 60px; height: 30px; background: #d500f9; animation: fade-out 2s infinite alternate; }
+  .pop { width: 40px; height: 40px; background: #ffab00; animation: pop 0.5s infinite alternate; }
+  .shake { width: 40px; height: 40px; background: #f44336; animation: shake 0.5s infinite; }
+  .heartbeat { width: 50px; height: 50px; background: #c51162; border-radius: 50%; animation: heartbeat 1.5s infinite; }
+  .flicker { width: 60px; height: 30px; background: #7c4dff; animation: flicker 2s infinite; }
+  .zoom-in { width: 60px; height: 60px; background: #4caf50; animation: zoom-in 1s infinite alternate; }
+  .zoom-out { width: 60px; height: 60px; background: #ec407a; animation: zoom-out 1s infinite alternate; }
+  .skew { width: 60px; height: 30px; background: #00bcd4; animation: skew 1.5s infinite; }
+  .tilt { width: 60px; height: 30px; background: #ff7043; animation: tilt 1s infinite alternate; }
+  .slide-up { width: 60px; height: 30px; background: #8bc34a; animation: slide-up 1s infinite; }
+  .morph { width: 50px; height: 50px; background: #ff1744; animation: morph 1.5s infinite; }
+  .rotate3d { width: 50px; height: 50px; background: #00acc1; animation: rotate3d 2s infinite linear; }
+  .blinker { width: 20px; height: 20px; background: #fff; animation: blinker 1s infinite; }
+  .expand { width: 10px; height: 10px; background: #76ff03; animation: expand 1s infinite alternate; }
+  .flip-in { width: 50px; height: 50px; background: #e91e63; animation: flip-in 1.5s infinite alternate; }
+</style>
+
+<!-- Add these new boxes inside the .animation-container -->
+<div class="animation-container">
+  <!-- Existing boxes remain unchanged -->
+
+  <!-- New Animations -->
+  <div class="box"><div class="bounce"></div><span class="animation-label">bounce</span></div>
+  <div class="box"><div class="spin"></div><span class="animation-label">spin</span></div>
+  <div class="box"><div class="stretch"></div><span class="animation-label">stretch</span></div>
+  <div class="box"><div class="roll"></div><span class="animation-label">roll</span></div>
+  <div class="box"><div class="slide-in"></div><span class="animation-label">slide-in</span></div>
+  <div class="box"><div class="fade-out"></div><span class="animation-label">fade-out</span></div>
+  <div class="box"><div class="pop"></div><span class="animation-label">pop</span></div>
+  <div class="box"><div class="shake"></div><span class="animation-label">shake</span></div>
+  <div class="box"><div class="heartbeat"></div><span class="animation-label">heartbeat</span></div>
+  <div class="box"><div class="flicker"></div><span class="animation-label">flicker</span></div>
+  <div class="box"><div class="zoom-in"></div><span class="animation-label">zoom-in</span></div>
+  <div class="box"><div class="zoom-out"></div><span class="animation-label">zoom-out</span></div>
+  <div class="box"><div class="skew"></div><span class="animation-label">skew</span></div>
+  <div class="box"><div class="tilt"></div><span class="animation-label">tilt</span></div>
+  <div class="box"><div class="slide-up"></div><span class="animation-label">slide-up</span></div>
+  <div class="box"><div class="morph"></div><span class="animation-label">morph</span></div>
+  <div class="box"><div class="rotate3d"></div><span class="animation-label">rotate3d</span></div>
+  <div class="box"><div class="blinker"></div><span class="animation-label">blinker</span></div>
+  <div class="box"><div class="expand"></div><span class="animation-label">expand</span></div>
+  <div class="box"><div class="flip-in"></div><span class="animation-label">flip-in</span></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <footer>
+    © 2025 <strong>Ashikur Rahman</strong> | All Rights Reserved | <em>CSS Animated UI</em>
+  </footer>
+</body>
+</html>
